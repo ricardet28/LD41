@@ -10,9 +10,15 @@ public class PlayerInput : MonoBehaviour {
     public float mov;
     [HideInInspector]
     public bool shield;
+
+    [HideInInspector]
+    public bool shootBullet;
+
+    private GameObject player;
 	
     void Awake()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -28,10 +34,17 @@ public class PlayerInput : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+
         mov = Input.GetAxisRaw("Horizontal");
         Debug.Log(mov);
-        shield = Input.GetButton("B");
+
+        shield = Input.GetButton("Shield");
         Debug.Log(shield);
+
+        shootBullet = Input.GetButton("ShootBullet");
+        Debug.Log(shootBullet);
+
+
 
     }
 }

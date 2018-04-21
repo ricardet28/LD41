@@ -593,10 +593,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1368415060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67779fb9914d017498230e86badd355f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f452db3ff2048a4f9654cf46c4f0306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1036237728878046, guid: 803009d305da3cc4d90f32437fa80420, type: 2}
+  mov: 0
+  shield: 0
+  shootBullet: 0
 --- !u!1 &2075538440
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,3 +640,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
+  force: 0

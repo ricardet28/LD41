@@ -19,9 +19,9 @@ public class BulletMovement : MonoBehaviour {
 		
 	}
 
-    public void bulletMovement()
+    public void bulletMovement(Vector3 direction, float force)
     {
-        rb.AddForce(Vector3.up * 30f);
+        rb.AddForce(direction * force);
     }
     
 

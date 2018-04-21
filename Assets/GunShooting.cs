@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunShooting : MonoBehaviour {
 
     public Rigidbody bullet;
+    public float force;
 
     // Use this for initialization
 
@@ -25,7 +26,7 @@ public class GunShooting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-
+        
 
 	}
 
@@ -33,7 +34,7 @@ public class GunShooting : MonoBehaviour {
     {
 
         Rigidbody bulletInstance = (Rigidbody)Instantiate(bullet, transform.position, Quaternion.identity);
-        bulletInstance.gameObject.GetComponent<BulletMovement>().bulletMovement();
+        bulletInstance.gameObject.GetComponent<BulletMovement>().bulletMovement(transform.up, force);
 
     }
 }

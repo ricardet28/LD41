@@ -18,15 +18,7 @@ public class GunAiming : MonoBehaviour {
 
     private void Aiming()
     {
-        /*
-        Debug.Log("aiming!!");
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
-        Vector3 direction = mousePosition - transform.position;
-        Quaternion rotationObjective = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotationObjective, speedRotation * Time.deltaTime);
-        //transform.LookAt(direction);
-        */
-
+       
         float rotation = Input.GetAxis("Vertical");
         transform.Rotate(0f, 0f,  rotation * Time.deltaTime * speedRotation);
         Debug.Log(rotation);
