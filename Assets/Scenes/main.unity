@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 1368415062}
   - component: {fileID: 1368415061}
   - component: {fileID: 1368415067}
+  - component: {fileID: 1368415068}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -515,7 +516,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!23 &1368415063
 MeshRenderer:
@@ -599,6 +600,18 @@ MonoBehaviour:
   mov: 0
   shield: 0
   shootBullet: 0
+--- !u!114 &1368415068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368415060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d891a918f94f0544bb75dc6bcc3ebf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &2075538440
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,5 +652,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568f78e6cc4386f4ebd936f7ce0a1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  force: 0
+  bullet: {fileID: 54654198228106650, guid: 803009d305da3cc4d90f32437fa80420, type: 2}
+  force: 400

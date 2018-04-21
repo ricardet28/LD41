@@ -22,17 +22,10 @@ public class GunShooting : MonoBehaviour {
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-        
-
-	}
 
     public void Shoot()
     {
-
+        Debug.Log("dispara");
         Rigidbody bulletInstance = (Rigidbody)Instantiate(bullet, transform.position, Quaternion.identity);
         bulletInstance.gameObject.GetComponent<BulletMovement>().bulletMovement(transform.up, force);
 

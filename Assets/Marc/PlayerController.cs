@@ -12,21 +12,16 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+
         playerRigidBody = GetComponent<Rigidbody>();
+
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
 
-        float mov = PlayerInput.instance.mov;
-        Move(mov);
-    }
-
-    void Move(float mov)
+    public void Move(float mov)
     {
         movement.x = mov;
-        movement = movement.normalized * speed * Time.deltaTime;
-
+        movement = movement * speed * Time.deltaTime;
+        
         playerRigidBody.MovePosition(transform.position + movement);
     }
 }

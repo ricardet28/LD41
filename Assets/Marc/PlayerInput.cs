@@ -6,6 +6,10 @@ public class PlayerInput : MonoBehaviour {
 
     public static PlayerInput instance = null;
 
+    private GunShooting _gunShooting;
+    private GunAiming _gunAiming;
+    private PlayerController _playerController;
+
     [HideInInspector]
     public float mov;
     [HideInInspector]
@@ -19,30 +23,31 @@ public class PlayerInput : MonoBehaviour {
     void Awake()
     {
 
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
+        _gunShooting = GetComponentInChildren<GunShooting>();
+        _gunAiming = GetComponentInChildren<GunAiming>();
+        _playerController = GetComponent<PlayerController>();
 
-        DontDestroyOnLoad(this.gameObject);
     }
 
-	// Update is called once per frame
 	void FixedUpdate () {
 
-        mov = Input.GetAxisRaw("Horizontal");
+        mov = Input.GetAxisRaw("Movimiento");
         Debug.Log(mov);
 
-        shield = Input.GetButton("Shield");
-        Debug.Log(shield);
+        if (Input.GetButtonDown("Fire1"))
+        {
+            _gunShooting.Shoot();
+        }
 
-        shootBullet = Input.GetButton("ShootBullet");
-        Debug.Log(shootBullet);
+        float rotation = Input.GetAxis("ArmaY");
+        _gunAiming.Aiming(rotation);
+
+        float xValue = Input.GetAxis("Movimiento");
+        _playerController.Move(xValue);
+
+
+
+
 
 
 

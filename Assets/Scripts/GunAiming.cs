@@ -13,15 +13,14 @@ public class GunAiming : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Aiming();
+
 	}
 
-    private void Aiming()
+    public void Aiming(float value)
     {
        
-        float rotation = Input.GetAxis("Vertical");
-        transform.Rotate(0f, 0f,  rotation * Time.deltaTime * speedRotation);
-        Debug.Log(rotation);
+        transform.Rotate(0f, 0f,  value * Time.deltaTime * speedRotation);
+        
     }
 
 
