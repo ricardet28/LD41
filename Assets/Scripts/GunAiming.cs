@@ -18,8 +18,14 @@ public class GunAiming : MonoBehaviour {
 
     public void Aiming(float value)
     {
-       
-        transform.Rotate(0f, 0f,  value * Time.deltaTime * speedRotation);
+        float angle = Mathf.Rad2Deg * transform.rotation.z * 2.2f;
+        float angleToRotate = value * Time.deltaTime * speedRotation;
+        float angleRotation = angle + angleToRotate;
+
+        if (angleRotation <= 90 && angleRotation >= -90)
+        {
+            transform.Rotate(0f, 0f, angleToRotate);
+        }
         
     }
 
