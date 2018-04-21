@@ -10,7 +10,10 @@ public class PlayerInput : MonoBehaviour {
     public float mov;
     [HideInInspector]
     public bool shield;
-	
+    [HideInInspector]
+    public float rotation;
+
+
     void Awake()
     {
         if (instance == null)
@@ -28,9 +31,10 @@ public class PlayerInput : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        float rotation = Input.GetAxis("Vertical");
         mov = Input.GetAxisRaw("Horizontal");
         Debug.Log(mov);
-        shield = Input.GetButton("B");
+        shield = Input.GetButton("Shield");
         Debug.Log(shield);
 
     }

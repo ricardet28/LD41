@@ -26,8 +26,7 @@ public class GunAiming : MonoBehaviour {
         transform.rotation = Quaternion.Slerp(transform.rotation, rotationObjective, speedRotation * Time.deltaTime);
         //transform.LookAt(direction);
         */
-
-        float rotation = Input.GetAxis("Vertical");
+        float rotation = PlayerInput.instance.rotation;
         transform.Rotate(0f, 0f,  rotation * Time.deltaTime * speedRotation);
         Debug.Log(rotation);
     }
