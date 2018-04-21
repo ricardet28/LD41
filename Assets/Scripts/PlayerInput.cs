@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
 
-    public static PlayerInput instance = null;
-
     private GunAiming _gunAiming;
     private PlayerController _playerController;
+    private PlayerManager _playerManager;
+
+    private string movementAxisName;
+    private string shieldAxisName;
+    private string AimAxisName;
+    private string FireAxisName;
 
     public float mov;
     public bool shieldEnabled;
-
-    [HideInInspector]
     public bool shootBullet;
 
     private GameObject player;
@@ -22,27 +24,33 @@ public class PlayerInput : MonoBehaviour {
 
         _gunAiming = GetComponentInChildren<GunAiming>();
         _playerController = GetComponent<PlayerController>();
-
+        _playerManager = GetComponent<PlayerManager>();
     }
 
-	void FixedUpdate () {
+    private void Start()
+    {
+        Debug.Log(_playerManager.playerNumber);
+        movementAxisName = "Movimiento" + _playerManager.playerNumber;
+        shieldAxisName = "Shield"+ _playerManager.playerNumber;
+        AimAxisName = "ArmaY"+ _playerManager.playerNumber;
+        FireAxisName = "Fire"+_playerManager.playerNumber;
+    }
 
-        if (Input.GetButtonDown("Fire1"))
+    void FixedUpdate () {
+
+        if (Input.GetButtonDown(FireAxisName))
         {
             shootBullet = true;
         }
 
 
-        float xValue = Input.GetAxis("Movimiento");
+        float xValue = Input.GetAxis(movementAxisName);
         _playerController.Move(xValue);
 
-        float rotation = Input.GetAxis("ArmaY");
+        float rotation = Input.GetAxis(AimAxisName);
         _gunAiming.Aiming(rotation);
         
-        
-
-        shieldEnabled = Input.GetButton("Shield");
-        Debug.Log(shieldEnabled);
+        shieldEnabled = Input.GetButton(shieldAxisName);
 
     }
 }

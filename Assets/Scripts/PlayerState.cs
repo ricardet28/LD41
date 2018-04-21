@@ -34,7 +34,7 @@ public class PlayerState : MonoBehaviour {
             shield.SetActive(false);
         }
 
-        if (_playerInput.shootBullet)
+        if (_playerInput.shootBullet && !_playerInput.shieldEnabled)
         {
             _gunShooting.Shoot();
             _playerInput.shootBullet = false;
