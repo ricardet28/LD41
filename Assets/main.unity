@@ -261,7 +261,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.019805342, y: 0.75536716, z: 0}
   m_LocalScale: {x: 0.19999988, y: 1.4585118, z: 0.2}
-  m_Children: []
+  m_Children:
+  - {fileID: 2075538441}
   m_Father: {fileID: 196061046}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -596,3 +597,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1036237728878046, guid: 803009d305da3cc4d90f32437fa80420, type: 2}
+--- !u!1 &2075538440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2075538441}
+  - component: {fileID: 2075538442}
+  m_Layer: 0
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2075538441
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075538440}
+  m_LocalRotation: {x: 0.00893215, y: -0.033443276, z: -0.004939072, w: 0.9993885}
+  m_LocalPosition: {x: -0.17, y: 0.468, z: -0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 752627774}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.0040001, y: -3.8380003, z: -0.6}
+--- !u!114 &2075538442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2075538440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 568f78e6cc4386f4ebd936f7ce0a1c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
