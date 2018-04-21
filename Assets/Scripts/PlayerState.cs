@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour {
 
-
     private GunShooting _gunShooting;
     private PlayerInput _playerInput;
+    private BallShooting _ballShooting;
 
     public GameObject gun;
     public GameObject shield;
@@ -14,10 +14,9 @@ public class PlayerState : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-
         _gunShooting = GetComponentInChildren<GunShooting>();
         _playerInput = GetComponent<PlayerInput>();
-
+        _ballShooting = GetComponentInChildren<BallShooting>();
     }
     // Update is called once per frame
     void Update () {
@@ -38,6 +37,12 @@ public class PlayerState : MonoBehaviour {
         {
             _gunShooting.Shoot();
             _playerInput.shootBullet = false;
+        }
+        else if (_playerInput.shootBall && !_playerInput.shieldEnabled)
+        {
+            _ballShooting.ShootBall();
+            print("ballshooting");
+            _playerInput.shootBall = false;
         }
 
 	}

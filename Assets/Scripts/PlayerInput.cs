@@ -12,10 +12,12 @@ public class PlayerInput : MonoBehaviour {
     private string shieldAxisName;
     private string AimAxisName;
     private string FireAxisName;
+    private string BallAxisName;
 
     public float mov;
     public bool shieldEnabled;
     public bool shootBullet;
+    public bool shootBall;
 
     private GameObject player;
 	
@@ -34,15 +36,16 @@ public class PlayerInput : MonoBehaviour {
         shieldAxisName = "Shield"+ _playerManager.playerNumber;
         AimAxisName = "ArmaY"+ _playerManager.playerNumber;
         FireAxisName = "Fire"+_playerManager.playerNumber;
+        BallAxisName = "Ball" + _playerManager.playerNumber;
     }
 
     void FixedUpdate () {
 
         if (Input.GetButtonDown(FireAxisName))
-        {
             shootBullet = true;
-        }
 
+        if (Input.GetButtonDown(BallAxisName))
+            shootBall = true;
 
         float xValue = Input.GetAxis(movementAxisName);
         _playerController.Move(xValue);
@@ -50,6 +53,7 @@ public class PlayerInput : MonoBehaviour {
         float rotation = Input.GetAxis(AimAxisName);
         _gunAiming.Aiming(rotation);
         
+
         shieldEnabled = Input.GetButton(shieldAxisName);
 
     }

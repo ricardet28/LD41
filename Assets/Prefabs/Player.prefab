@@ -60,6 +60,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4025191579393316}
   - component: {fileID: 114684181540560600}
+  - component: {fileID: 114422748736646566}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -165,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519024836140192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.29, y: 1.5, z: 2.82}
+  m_LocalPosition: {x: -9.43, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4158305889419074}
@@ -347,6 +348,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1606088314934018}
   shield: {fileID: 1789241219191594}
+--- !u!114 &114422748736646566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596924445527122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36da81b31099528468f535469090afe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastLength: 100
+  velocityMultiplier: 20
+  BallTag: Ball
 --- !u!114 &114476511332145714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,6 +388,7 @@ MonoBehaviour:
   mov: 0
   shieldEnabled: 0
   shootBullet: 0
+  shootBall: 0
 --- !u!114 &114667153688582816
 MonoBehaviour:
   m_ObjectHideFlags: 1
