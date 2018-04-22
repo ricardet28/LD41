@@ -47,6 +47,8 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetButtonDown(BallAxisName))
             shootBall = true;
 
+        
+
         float xValue = Input.GetAxis(movementAxisName);
         _playerController.Move(xValue);
 
