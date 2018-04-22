@@ -42,7 +42,7 @@ public class MusicManager : MonoBehaviour {
         {
             case (int)scenes.MainMenu:
                 _audio.clip = songs[0];
-                if (!_audio.isPlaying|| _audio.clip == songs[4])
+                if (!_audio.isPlaying)
                 {
                     _audio.Stop();
                     _audio.Play();
@@ -82,7 +82,7 @@ public class MusicManager : MonoBehaviour {
                 if (_audio.clip == songs[1] || _audio.clip == songs[2] || _audio.clip == songs[3])
                 {
                     _audio.Stop();
-                    _audio.clip = songs[4];
+                    _audio.clip = songs[0];
                     _audio.Play();
                 }
                 break;

@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/ScenesToBuild/StageSelect.unity
     guid: 145e327f6287d544895ab829f363c67b
   - enabled: 1
-    path: Assets/Scenes/ScenesToBuild/Marc.unity
+    path: Assets/Scenes/ScenesToBuild/Level1.unity
     guid: c554dc1c3f0a47140a9ae6159ae8f8fc
   - enabled: 1
-    path: Assets/Scenes/ScenesToBuild/Makastrero1.unity
+    path: Assets/Scenes/ScenesToBuild/Level2.unity
     guid: f07fc3adb34d1f548aec9321e48d2f8d
   - enabled: 1
-    path: Assets/Scenes/ScenesToBuild/Makastrero2.unity
+    path: Assets/Scenes/ScenesToBuild/Level3.unity
     guid: 71c2b6b9d374bae479479b595941f746
   - enabled: 1
     path: Assets/Scenes/ScenesToBuild/EndGame.unity
