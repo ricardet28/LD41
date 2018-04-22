@@ -24,14 +24,14 @@ public class sphereMovement : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("LeftSide"))
+        if (collision.gameObject.CompareTag("LeftSide") && GameManager.instance.playing)
         {
             Debug.Log("bola toca left side");
             GameManager.instance.ballTouchFloorLeft1 = true;
             
             
         }
-        else if (collision.gameObject.CompareTag("RightSide"))
+        else if (collision.gameObject.CompareTag("RightSide") && GameManager.instance.playing)
         {
             Debug.Log("bola toca right side");
             GameManager.instance.ballTouchFloorRight2 = true;

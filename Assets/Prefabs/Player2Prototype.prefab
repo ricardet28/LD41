@@ -319,6 +319,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1766914786299674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4018806968326266}
+  m_Layer: 0
+  m_Name: SpawnPlayer2
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!1 &1794634852943090
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +437,19 @@ Transform:
   m_Father: {fileID: 4283745399478420}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 106.41699, y: -90, z: -90}
+--- !u!4 &4018806968326266
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766914786299674}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.49999997, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 4283745399478420}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4019305709468406
 Transform:
   m_ObjectHideFlags: 1
@@ -484,7 +512,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799576856806490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.41, y: 0.2, z: 13.8}
+  m_LocalPosition: {x: 25, y: 0, z: 13.8}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4702922480118686}
@@ -496,6 +524,7 @@ Transform:
   - {fileID: 4011536551666720}
   - {fileID: 4293796282090180}
   - {fileID: 4917103973659018}
+  - {fileID: 4018806968326266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1183,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568f78e6cc4386f4ebd936f7ce0a1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 54654198228106650, guid: 803009d305da3cc4d90f32437fa80420, type: 2}
+  bullet: {fileID: 54654198228106650, guid: 037bcd0c033bff042aaf36ac5954c779, type: 2}
   _particlesBullet: {fileID: 198707832006502834}
   force: 225
 --- !u!114 &114149411122581062
@@ -1197,7 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3283934f1c81b243b7dd281956fe5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 4018806968326266}
   playerNumber: 2
   score: 10
   flames: {fileID: 198896340509109814}
