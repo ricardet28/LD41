@@ -12,6 +12,7 @@ public class LineAiming : MonoBehaviour {
     private void Start()
     {
         _line.enabled = true;
+        
     }
     private void Update()
     {

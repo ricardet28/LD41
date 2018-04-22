@@ -30,7 +30,6 @@ public class PlayerState : MonoBehaviour {
 
         else
         {
-            
             gun.SetActive(true);
             shield.SetActive(false);
         }
