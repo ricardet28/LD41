@@ -5,7 +5,7 @@ using UnityEngine;
 public class sphereMovement : MonoBehaviour {
 
     private Rigidbody rb;
-    
+    public AudioSource _audioSource;
 
     void Awake()
     {
@@ -38,5 +38,10 @@ public class sphereMovement : MonoBehaviour {
             
 
         }
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+        }
+        _audioSource.Play();
     }
 }

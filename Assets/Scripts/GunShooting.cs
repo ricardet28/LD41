@@ -7,6 +7,7 @@ public class GunShooting : MonoBehaviour {
 
     public Rigidbody bullet;
     public ParticleSystem _particlesBullet;
+    public AudioSource _audioSource;
     
     public float force;
 
@@ -33,6 +34,12 @@ public class GunShooting : MonoBehaviour {
         Debug.Log("dispara");
         _particlesBullet.gameObject.SetActive(true);
         _particlesBullet.Play();
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+            
+        }
+        _audioSource.Play();
         Rigidbody bulletInstance = (Rigidbody)Instantiate(bullet, transform.position, Quaternion.identity);
         bulletInstance.gameObject.GetComponent<BulletMovement>().bulletMovement(transform.up, force);
 
