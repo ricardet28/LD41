@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - Net
+  - Player1
+  - Player2
+  - LeftSide
+  - RightSide
+  - Bullet
   layers:
   - Default
   - TransparentFX
