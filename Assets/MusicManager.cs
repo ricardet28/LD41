@@ -11,6 +11,12 @@ public class MusicManager : MonoBehaviour {
 
     public AudioClip[] songs;
 
+    public static int winner;
+    public static bool imageChanged;
+
+    public Sprite[] spritesWinners;
+    public int _playerWinner;
+
     enum scenes {MainMenu = 0, StageSelect = 1, Level1 = 2, Level2 = 3, Level3 = 4, EndGame = 5};
     private void Awake()
     {
@@ -49,7 +55,7 @@ public class MusicManager : MonoBehaviour {
                 }
 
                 break;
-            
+
             case (int)scenes.Level1:
 
                 if (_audio.clip == songs[0])
@@ -88,4 +94,6 @@ public class MusicManager : MonoBehaviour {
                 break;
         }
     }
+
+
 }

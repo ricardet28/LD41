@@ -24,10 +24,6 @@ public class GameManager : MonoBehaviour {
     private GameObject _ball;
     public Transform spawnPointBall;
 
-    public GameObject ImageWonPlayer1;
-    public GameObject ImageWonPlayer2;
-
-
     public Text scorePlayer1;
     public Text scorePlayer2;
 
@@ -44,6 +40,9 @@ public class GameManager : MonoBehaviour {
 
     public bool ballTouchFloorLeft1;
     public bool ballTouchFloorRight2;
+
+    private MusicManager _musicManager;
+    
     // Use this for initialization
     public static GameManager instance = null;
 
@@ -59,6 +58,9 @@ public class GameManager : MonoBehaviour {
             return;
         }
         DontDestroyOnLoad(this.gameObject);
+
+        _musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
+        
         
     }
     void Start () {
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour {
 
         StartCoroutine(GameLoop());
 
+        MusicManager.imageChanged = false;
 
     }
 
@@ -85,15 +88,10 @@ public class GameManager : MonoBehaviour {
         if (gameWinner != null)
         {
             Debug.Log("El ganador es PLAYER" + gameWinner.playerNumber);
-            if(gameWinner.playerNumber == 1)
-            {
-                ImageWonPlayer1.SetActive(true);
-            }
-            if (gameWinner.playerNumber == 2)
-            {
-                ImageWonPlayer2.SetActive(true);
-            }
+            MusicManager.winner = gameWinner.playerNumber;
             SceneManager.LoadScene(5);
+
+            _musicManager._playerWinner = gameWinner.playerNumber;
             Destroy(this.gameObject);
         }
         else
