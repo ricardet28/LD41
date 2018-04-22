@@ -6,25 +6,55 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 
-    public int roundsToWin = 3;
+    
     public float startDelay = 3f;
     public float endDelay = 3f;
 
-    public Text messageText;
-    public GameObject playerPrefab;
+    public int scoreToWin;
+    public int scoreToLose;
 
-    public int roundsNumber;
+    public int pointsScored;
+    public int pointsLost;
+
+    public Text messageText;
+    public GameObject ball;
+    private GameObject _ball;
+    public Transform spawnPointBall;
+
+    public Text scorePlayer1;
+    public Text scorePlayer2;
+
+    //public int roundsNumber;
     private WaitForSeconds startWait;
     private WaitForSeconds endWait;
 
     public PlayerManager[] players;
 
-    private PlayerManager roundWinner;
+    //private PlayerManager roundWinner;
     private PlayerManager gameWinner;
 
-    private bool ballTouchFloor;
-	// Use this for initialization
-	void Start () {
+    public bool playing = false;
+
+    public bool ballTouchFloorLeft1;
+    public bool ballTouchFloorRight2;
+    // Use this for initialization
+    public static GameManager instance = null;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        DontDestroyOnLoad(this);
+        
+    }
+    void Start () {
 
         startWait = new WaitForSeconds(startDelay);
         endWait = new WaitForSeconds(endDelay);
@@ -37,13 +67,15 @@ public class GameManager : MonoBehaviour {
 	
     private IEnumerator GameLoop()
     {
-        yield return StartCoroutine(RoundStarting());
-        yield return StartCoroutine(RoundPlaying());
-        yield return StartCoroutine(RoundEnding());
+        yield return StartCoroutine(PointStarting());
+        yield return StartCoroutine(PointPlaying());
+        yield return StartCoroutine(PointEnding());
+
+        
 
         if (gameWinner != null)
         {
-            //scene initial
+            Debug.Log("El ganador es PLAYER" + gameWinner.playerNumber);
         }
         else
         {
@@ -51,46 +83,65 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator RoundStarting()
+    private IEnumerator PointStarting()
     {
-        //reset players on initial pos spawn
+        Debug.Log("round starting");
+        SpawnPlayers();
+        if (_ball != null)
+        {
+            Destroy(_ball);
+        }
+        SpawnBall();
         DisablePlayerControls();
+        DisableBall();
 
-        roundsNumber++;
-        messageText.text = "ROUND " + roundsNumber;
+        //choose one random map
 
         yield return startWait;
     }
 
-    private IEnumerator RoundPlaying()
+    private IEnumerator PointPlaying()
     {
+        playing = true;
+        Debug.Log("round playing");
         EnablePlayerControls();
-        messageText.text = string.Empty;
+        EnableBall();
+        
 
-        while (!ballTouchFloor)
+        while (!ballTouchFloorLeft1 && !ballTouchFloorRight2 && gameWinner==null)
         {
+            CheckWin();
+            if (gameWinner!=null)
+            {
+                DisablePlayerControls();
+                DisableBall();
+            }
             yield return null;
         }
     }
 
-    private IEnumerator RoundEnding()
+    private IEnumerator PointEnding()
     {
+        playing = false;
         DisablePlayerControls();
-        roundWinner = null;
-        //roundWinner = GetRoundWinner();
-        if (roundWinner != null)
-        {
-            roundWinner.numWins++;
 
+        if (ballTouchFloorLeft1)
+        {
+            players[1].setScore(players[1].getScore() + pointsScored);
+            players[0].setScore(players[0].getScore() - pointsLost);
+            ballTouchFloorLeft1 = false;
         }
 
-        if (roundWinner.numWins == roundsToWin)
+        else if (ballTouchFloorRight2)
         {
-            gameWinner = roundWinner;
+            players[0].setScore(players[0].getScore() + pointsScored);
+            players[1].setScore(players[1].getScore() - pointsLost);
+            ballTouchFloorRight2 = false;
         }
 
-        //string message = EndMessage();
-        //messageText.text = message;
+        CheckWin();
+        
+
         yield return endWait;
             
     }
@@ -108,4 +159,52 @@ public class GameManager : MonoBehaviour {
             players[i].GetComponent<PlayerManager>().EnableControl();
         }
     }
+    private void SpawnPlayers()
+    {
+        for (int i = 0; i<players.Length; i++)
+        {
+            players[i].gameObject.transform.position = players[i].spawnPoint.transform.position;
+        }
+    }
+
+    private void SpawnBall()
+    {
+        _ball = Instantiate(ball, spawnPointBall.position, Quaternion.identity);
+        
+    }
+    private void DisableBall()
+    {
+        Debug.Log("disable the ball");
+        _ball.GetComponent<Rigidbody>().useGravity = false;
+        _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+      
+    }
+    private void EnableBall()
+    {
+        Debug.Log("enable the ball");
+        _ball.GetComponent<Rigidbody>().useGravity = true;
+
+    }
+
+    private void CheckWin()
+    {
+        //condition to win player1:
+
+        if (players[0].getScore() == scoreToWin || players[1].getScore() == scoreToLose)
+        {
+            //win player 1
+            gameWinner = players[0];
+           
+        }
+
+        //condition to win player2
+        else if (players[1].getScore() == scoreToWin || players[0].getScore() == scoreToLose)
+        {
+            //win player 2
+            gameWinner = players[1];
+    
+        }
+    }
+
+    
 }

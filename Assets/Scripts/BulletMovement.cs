@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
+
     private Rigidbody rb;
+    private PlayerManager pm;
     // Use this for initialization
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
     }
 
     void Start () {
@@ -18,15 +21,33 @@ public class BulletMovement : MonoBehaviour {
         rb.AddForce(new Vector3(0, -3, 0));
     }
 
-    void OnCollisionEnter(Collision c)
-    {
-        Destroy(this.gameObject);
-    }
 
     public void bulletMovement(Vector3 direction, float force)
     {
         rb.AddForce(direction * force);
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.tag == "Player1" && GameManager.instance.playing)
+        {
+            
+            other.gameObject.GetComponent<PlayerManager>().setScore(other.gameObject.GetComponent<PlayerManager>().getScore() - 1);
+            Debug.Log("Al Player " + other.gameObject.GetComponent<PlayerManager>().playerNumber + " le quedan " + other.gameObject.GetComponent<PlayerManager>().getScore() + " vidas!");
+        }
+        if (other.gameObject.tag == "Player2" && GameManager.instance.playing)
+        {
+            
+            other.gameObject.GetComponent<PlayerManager>().setScore(other.gameObject.GetComponent<PlayerManager>().getScore() - 1);
+            Debug.Log("Al Player " + other.gameObject.GetComponent<PlayerManager>().playerNumber + " le quedan " + other.gameObject.GetComponent<PlayerManager>().getScore() + " vidas!");
+        }
+        if (other.gameObject.tag != "Ball" && other.gameObject.tag != "Bullet")
+        {
+            Destroy(this.gameObject);
+        }
+
+    }
+
 
 }

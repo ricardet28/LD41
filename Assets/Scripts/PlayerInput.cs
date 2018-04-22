@@ -14,7 +14,6 @@ public class PlayerInput : MonoBehaviour {
     private string FireAxisName;
     private string BallAxisName;
 
-    public float mov;
     public bool shieldEnabled;
     public bool shootBullet;
     public bool shootBall;
@@ -31,7 +30,7 @@ public class PlayerInput : MonoBehaviour {
 
     private void Start()
     {
-        Debug.Log(_playerManager.playerNumber);
+        //Debug.Log(_playerManager.playerNumber);
         movementAxisName = "Movimiento" + _playerManager.playerNumber;
         shieldAxisName = "Shield"+ _playerManager.playerNumber;
         AimAxisName = "ArmaY"+ _playerManager.playerNumber;
@@ -54,7 +53,6 @@ public class PlayerInput : MonoBehaviour {
         _gunAiming.Aiming(rotation);
         
         shieldEnabled = Input.GetButton(shieldAxisName);
-        Debug.Log(shieldEnabled);
 
     }
 }
