@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour {
     private BallShooting _ballShooting;
     private PlayerController _playerController;
 
+    public ParticleSystem flames;
+
     private PlayerInput _playerInput;
 
     RigidbodyConstraints _originalConstraints;
@@ -34,6 +36,7 @@ public class PlayerManager : MonoBehaviour {
         _playerInput.enabled = false;
         Debug.Log("desactivamos el control del player" + playerNumber);
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        flames.gameObject.SetActive(false);
         
         
         //_gunAiming.enabled = false;
@@ -49,6 +52,7 @@ public class PlayerManager : MonoBehaviour {
         _playerInput.enabled = true;
         Debug.Log("activamos el control del player" + playerNumber);
         GetComponent<Rigidbody>().constraints = _originalConstraints;
+        flames.gameObject.SetActive(true);
         
         //_gunAiming.enabled = true;
 

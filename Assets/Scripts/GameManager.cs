@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
             Destroy(this);
             return;
         }
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
         
     }
     void Start () {
@@ -63,8 +63,9 @@ public class GameManager : MonoBehaviour {
 
         StartCoroutine(GameLoop());
 
-	}
-	
+
+    }
+
     private IEnumerator GameLoop()
     {
         yield return StartCoroutine(PointStarting());
@@ -87,6 +88,8 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("round starting");
         SpawnPlayers();
+        scorePlayer1.text = players[0].score.ToString();
+        scorePlayer2.text = players[1].score.ToString();
         if (_ball != null)
         {
             Destroy(_ball);
@@ -111,6 +114,8 @@ public class GameManager : MonoBehaviour {
         while (!ballTouchFloorLeft1 && !ballTouchFloorRight2 && gameWinner==null)
         {
             CheckWin();
+            scorePlayer1.text = players[0].score.ToString();
+            scorePlayer2.text = players[1].score.ToString();
             if (gameWinner!=null)
             {
                 DisablePlayerControls();

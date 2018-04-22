@@ -9,6 +9,8 @@ public class BallShooting : MonoBehaviour {
     public float velocityMultiplier = 20f;
     public String BallTag = "Ball";
 
+    public ParticleSystem _particlesImpulse;
+
     public bool fire;
 
     
@@ -16,6 +18,9 @@ public class BallShooting : MonoBehaviour {
     {
 
         fire = true;
+        _particlesImpulse.gameObject.SetActive(true);
+        _particlesImpulse.Play();
+        
         
     }
     private void Update()

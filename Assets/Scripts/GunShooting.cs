@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunShooting : MonoBehaviour {
 
     public Rigidbody bullet;
+    public ParticleSystem _particlesBullet;
     
     public float force;
 
@@ -13,6 +14,7 @@ public class GunShooting : MonoBehaviour {
 
     private void Awake()
     {
+        
         if (bullet == null)
         {
             Debug.Log("Player bullet prefab not set established. ");
@@ -29,6 +31,8 @@ public class GunShooting : MonoBehaviour {
         
         
         Debug.Log("dispara");
+        _particlesBullet.gameObject.SetActive(true);
+        _particlesBullet.Play();
         Rigidbody bulletInstance = (Rigidbody)Instantiate(bullet, transform.position, Quaternion.identity);
         bulletInstance.gameObject.GetComponent<BulletMovement>().bulletMovement(transform.up, force);
 
