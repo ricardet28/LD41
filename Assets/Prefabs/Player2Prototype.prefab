@@ -1469,6 +1469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1151051405035882}
   shield: {fileID: 1559154221085684}
+  timeBetweenShoots: 0.5
+  timerShooting: 0
 --- !u!114 &114504777289452186
 MonoBehaviour:
   m_ObjectHideFlags: 1

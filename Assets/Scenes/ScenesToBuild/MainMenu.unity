@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 163484941}
   - component: {fileID: 163484943}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MusicManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,6 +287,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7155c437d7c526d4492a65c17c14007a, type: 3}
   - {fileID: 8300000, guid: 2b66a97cab25821448596aac9d24b3e5, type: 3}
   - {fileID: 8300000, guid: 3fd63bdc285be234fbd6548a6d0f4959, type: 3}
+  spritesWinners: []
+  _playerWinner: 0
 --- !u!4 &163484942
 Transform:
   m_ObjectHideFlags: 0
