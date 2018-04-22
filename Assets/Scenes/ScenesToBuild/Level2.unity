@@ -52692,8 +52692,8 @@ MonoBehaviour:
   scorePlayer1: {fileID: 652374356}
   scorePlayer2: {fileID: 1770418938}
   players:
-  - {fileID: 114262782771513418, guid: e0de45d49d687a24089e4ba48fa074b4, type: 2}
-  - {fileID: 114149411122581062, guid: bc062d07e4ec01948bdce340fc323a87, type: 2}
+  - {fileID: 1921226537}
+  - {fileID: 1960493259}
   playing: 0
   ballTouchFloorLeft1: 0
   ballTouchFloorRight2: 0
@@ -112446,6 +112446,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0de45d49d687a24089e4ba48fa074b4, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1921226537 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114262782771513418, guid: e0de45d49d687a24089e4ba48fa074b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1921226536}
+  m_Script: {fileID: 11500000, guid: c3283934f1c81b243b7dd281956fe5d1, type: 3}
 --- !u!1 &1924096899
 GameObject:
   m_ObjectHideFlags: 0
@@ -115802,6 +115808,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc062d07e4ec01948bdce340fc323a87, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1960493259 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114149411122581062, guid: bc062d07e4ec01948bdce340fc323a87,
+    type: 2}
+  m_PrefabInternal: {fileID: 1960493258}
+  m_Script: {fileID: 11500000, guid: c3283934f1c81b243b7dd281956fe5d1, type: 3}
 --- !u!43 &1966221646
 Mesh:
   m_ObjectHideFlags: 0
