@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -16,10 +17,16 @@ public class GameManager : MonoBehaviour {
     public int pointsScored;
     public int pointsLost;
 
+    public int scenesPreLevel = 2;
+
     public Text messageText;
-    public GameObject ball;
+    public GameObject[] balls;
     private GameObject _ball;
     public Transform spawnPointBall;
+
+    public GameObject ImageWonPlayer1;
+    public GameObject ImageWonPlayer2;
+
 
     public Text scorePlayer1;
     public Text scorePlayer2;
@@ -72,11 +79,22 @@ public class GameManager : MonoBehaviour {
         yield return StartCoroutine(PointPlaying());
         yield return StartCoroutine(PointEnding());
 
-        
+        scorePlayer1.text = players[0].score.ToString();
+        scorePlayer2.text = players[1].score.ToString();
 
         if (gameWinner != null)
         {
             Debug.Log("El ganador es PLAYER" + gameWinner.playerNumber);
+            if(gameWinner.playerNumber == 1)
+            {
+                ImageWonPlayer1.SetActive(true);
+            }
+            if (gameWinner.playerNumber == 2)
+            {
+                ImageWonPlayer2.SetActive(true);
+            }
+            SceneManager.LoadScene(5);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -174,7 +192,7 @@ public class GameManager : MonoBehaviour {
 
     private void SpawnBall()
     {
-        _ball = Instantiate(ball, spawnPointBall.position, Quaternion.identity);
+        _ball = Instantiate(balls[(int)SceneManager.GetActiveScene().buildIndex-scenesPreLevel], spawnPointBall.position, Quaternion.identity);
         
     }
     private void DisableBall()
