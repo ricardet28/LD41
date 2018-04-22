@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!1 &1025720215574532
 GameObject:
@@ -94,7 +94,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!1 &1270206139015466
 GameObject:
@@ -266,8 +266,13 @@ GameObject:
   - component: {fileID: 4281880371851950}
   - component: {fileID: 114814916073455726}
   - component: {fileID: 114016571959131736}
+<<<<<<< HEAD
   - component: {fileID: 120287995694103756}
   - component: {fileID: 114983310125986450}
+=======
+  - component: {fileID: 120564093505613790}
+  - component: {fileID: 114394790480228762}
+>>>>>>> ab315cbea6243c5356dfc6a12d103497e79e3617
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -695,7 +700,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266216178696554}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -730,7 +735,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1004167429644278}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -867,7 +872,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 124
   m_CollisionDetection: 0
 --- !u!65 &65240374859116224
 BoxCollider:
@@ -904,7 +909,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2343102acb6341e4caa1120bf30d1794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   raycastLength: 1.25
+=======
+  raycastLength: 100
+>>>>>>> ab315cbea6243c5356dfc6a12d103497e79e3617
   velocityMultiplier: 2
   BallTag: Ball
   pressedFireButton: 0
@@ -963,6 +972,17 @@ MonoBehaviour:
   shieldEnabled: 0
   shootBullet: 0
   shootBall: 0
+--- !u!114 &114394790480228762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869010283274060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad5990d2f8c644cbc51263a45aec2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114559129746854628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1001,7 +1021,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 54654198228106650, guid: 803009d305da3cc4d90f32437fa80420, type: 2}
+<<<<<<< HEAD
   force: 120
+=======
+  force: 250
+>>>>>>> ab315cbea6243c5356dfc6a12d103497e79e3617
 --- !u!114 &114819766654274758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1029,6 +1053,7 @@ MonoBehaviour:
   shieldEnabled: 0
   shootBullet: 0
   shootBall: 0
+<<<<<<< HEAD
 --- !u!114 &114983310125986450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1041,6 +1066,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!120 &120287995694103756
+=======
+--- !u!120 &120564093505613790
+>>>>>>> ab315cbea6243c5356dfc6a12d103497e79e3617
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
