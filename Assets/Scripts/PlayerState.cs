@@ -11,6 +11,10 @@ public class PlayerState : MonoBehaviour {
     public GameObject gun;
     public GameObject shield;
 
+    public float timeBetweenShoots = 0.5f;
+    public float timerShooting = 0;
+
+
     // Use this for initialization
     void Awake()
     {
@@ -21,6 +25,8 @@ public class PlayerState : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+
+        timerShooting += Time.deltaTime;
 
         if (_playerInput.shieldEnabled)
         {
@@ -35,9 +41,10 @@ public class PlayerState : MonoBehaviour {
             shield.SetActive(false);
         }
 
-        if (_playerInput.shootBullet && !_playerInput.shieldEnabled)
+        if (_playerInput.shootBullet && !_playerInput.shieldEnabled && timerShooting>timeBetweenShoots)
         {
             _gunShooting.Shoot();
+            timerShooting = 0f;
             _playerInput.shootBullet = false;
         }
         else if (_playerInput.shootBall && !_playerInput.shieldEnabled)
@@ -46,6 +53,7 @@ public class PlayerState : MonoBehaviour {
             print("ballshooting");
             _playerInput.shootBall = false;
         }
+
 
 	}
 }

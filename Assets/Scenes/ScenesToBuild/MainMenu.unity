@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 163484941}
   - component: {fileID: 163484943}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MusicManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,6 +287,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7155c437d7c526d4492a65c17c14007a, type: 3}
   - {fileID: 8300000, guid: 2b66a97cab25821448596aac9d24b3e5, type: 3}
   - {fileID: 8300000, guid: 3fd63bdc285be234fbd6548a6d0f4959, type: 3}
+  spritesWinners:
+  - {fileID: 21300000, guid: 755da5b77c1fd414d9e873a257130956, type: 3}
+  - {fileID: 21300000, guid: 065786d6c1d7d3246a69119dfc75271a, type: 3}
+  _playerWinner: 0
 --- !u!4 &163484942
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,8 +1090,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1453990205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 398, y: 224, z: 0}
-  m_LocalScale: {x: 0.4148148, y: 0.4148148, z: 0.4148148}
+  m_LocalPosition: {x: 264, y: 148.5, z: 0}
+  m_LocalScale: {x: 0.275, y: 0.275, z: 0.275}
   m_Children:
   - {fileID: 1840373166}
   - {fileID: 885023740}

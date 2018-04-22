@@ -11,6 +11,8 @@ TagManager:
   - LeftSide
   - RightSide
   - Bullet
+  - BlueFinalImage
+  - RedFinalImage
   layers:
   - Default
   - TransparentFX
