@@ -53,8 +53,8 @@ public class PlayerInput : MonoBehaviour {
         float rotation = Input.GetAxis(AimAxisName);
         _gunAiming.Aiming(rotation);
         
-
         shieldEnabled = Input.GetButton(shieldAxisName);
+        Debug.Log(shieldEnabled);
 
     }
 }

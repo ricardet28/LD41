@@ -22,7 +22,7 @@ public class GunAiming : MonoBehaviour {
         float angleToRotate = value * Time.deltaTime * speedRotation;
         float angleRotation = angle + angleToRotate;
 
-        if (angleRotation <= 90 && angleRotation >= -90)
+        if (angleRotation <= 70 && angleRotation >= -70)
         {
             transform.Rotate(0f, 0f, angleToRotate);
         }

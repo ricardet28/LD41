@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunShooting : MonoBehaviour {
 
     public Rigidbody bullet;
+    
     public float force;
 
     // Use this for initialization
@@ -25,6 +26,8 @@ public class GunShooting : MonoBehaviour {
 
     public void Shoot()
     {
+        
+        
         Debug.Log("dispara");
         Rigidbody bulletInstance = (Rigidbody)Instantiate(bullet, transform.position, Quaternion.identity);
         bulletInstance.gameObject.GetComponent<BulletMovement>().bulletMovement(transform.up, force);

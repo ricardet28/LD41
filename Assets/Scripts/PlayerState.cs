@@ -14,6 +14,7 @@ public class PlayerState : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
+        
         _gunShooting = GetComponentInChildren<GunShooting>();
         _playerInput = GetComponent<PlayerInput>();
         _ballShooting = GetComponentInChildren<BallShooting>();
@@ -29,6 +30,7 @@ public class PlayerState : MonoBehaviour {
 
         else
         {
+            
             gun.SetActive(true);
             shield.SetActive(false);
         }
