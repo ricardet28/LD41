@@ -5,7 +5,13 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - messageText: {instanceID: 0}
+  - spawnPointBall: {instanceID: 0}
+  - scorePlayer1: {instanceID: 0}
+  - scorePlayer2: {instanceID: 0}
+  - pauseMenuPrefab: {fileID: 1014264289072376, guid: adbf055e4719c944ea778838ded5c4d9,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
