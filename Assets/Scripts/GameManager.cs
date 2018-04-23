@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,9 +26,6 @@ public class GameManager : MonoBehaviour {
 
     public Text scorePlayer1;
     public Text scorePlayer2;
-
-    private bool isPaused;
-    private GameObject pauseGO;
 
     //public int roundsNumber;
     private WaitForSeconds startWait;
@@ -64,9 +60,11 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
 
         _musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
-        pauseGO = GameObject.Find("PauseMenu");
+        
+        
     }
     void Start () {
+
         startWait = new WaitForSeconds(startDelay);
         endWait = new WaitForSeconds(endDelay);
 
@@ -75,8 +73,6 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(GameLoop());
 
         MusicManager.imageChanged = false;
-        pauseGO.SetActive(false);
-        isPaused = false;
 
     }
 
@@ -231,36 +227,5 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-            {
-                pauseGO.SetActive(false);
-                PauseGame(false);
-                isPaused = false;
-            }
-            else
-            {
-                pauseGO.SetActive(true);
-                PauseGame(true);
-                isPaused = true;
-            }
-        }
-    }
-
-    public void PauseGame(bool pause)
-    {
-        if (pause)
-            Time.timeScale = 0.1f;
-        else
-            Time.timeScale = 1.0f;
-    }
-
-    public void RestartGameLoop()
-    {
-        StopAllCoroutines();
-        StartCoroutine(GameLoop());
-    }
+    
 }
