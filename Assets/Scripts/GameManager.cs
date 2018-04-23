@@ -253,8 +253,14 @@ public class GameManager : MonoBehaviour {
     public void PauseGame(bool pause)
     {
         if (pause)
-            Time.timeScale = 0.0f;
+            Time.timeScale = 0.1f;
         else
             Time.timeScale = 1.0f;
+    }
+
+    public void RestartGameLoop()
+    {
+        StopAllCoroutines();
+        StartCoroutine(GameLoop());
     }
 }
