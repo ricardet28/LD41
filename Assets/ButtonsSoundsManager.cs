@@ -7,7 +7,8 @@ public class ButtonsSoundsManager : MonoBehaviour {
 
     enum scenes { MainMenu = 0, StageSelect = 1, Level1 = 2, Level2 = 3, Level3 = 4, EndGame = 5 };
     public Button _playButton;
-    public Button _optionsButton;
+    public Button _controlsButton;
+    public Button _creditsButton;
     public Button _quitButton;
     public Button _backToMenuButton;
 
@@ -35,7 +36,8 @@ public class ButtonsSoundsManager : MonoBehaviour {
     private void Start()
     {
         _playButton.onClick.AddListener(TaskOnClick);
-        _optionsButton.onClick.AddListener(TaskOnClick);
+        _controlsButton.onClick.AddListener(TaskOnClick);
+        _creditsButton.onClick.AddListener(TaskOnClick);
         _quitButton.onClick.AddListener(TaskOnClick);
         
 
@@ -47,8 +49,11 @@ public class ButtonsSoundsManager : MonoBehaviour {
             _playButton = GameObject.Find("Play").GetComponent<Button>();
             _playButton.onClick.AddListener(TaskOnClick);
 
-            _optionsButton = GameObject.Find("Options").GetComponent<Button>();
-            _optionsButton.onClick.AddListener(TaskOnClick);
+            _controlsButton = GameObject.Find("Controls").GetComponent<Button>();
+            _controlsButton.onClick.AddListener(TaskOnClick);
+
+            _creditsButton = GameObject.Find("Credits").GetComponent<Button>();
+            _creditsButton.onClick.AddListener(TaskOnClick);
 
             _quitButton = GameObject.Find("Quit").GetComponent<Button>();
             _quitButton.onClick.AddListener(TaskOnClick);
