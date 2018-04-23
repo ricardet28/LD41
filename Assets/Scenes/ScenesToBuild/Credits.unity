@@ -320,7 +320,6 @@ GameObject:
   - component: {fileID: 394917239}
   - component: {fileID: 394917241}
   - component: {fileID: 394917240}
-  - component: {fileID: 394917242}
   m_Layer: 5
   m_Name: ImageRedWin
   m_TagString: RedFinalImage
@@ -379,17 +378,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 394917238}
---- !u!114 &394917242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 394917238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056d03ab97f958a4b82f5de670b0bfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1054320747
 GameObject:
   m_ObjectHideFlags: 0
