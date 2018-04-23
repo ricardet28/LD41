@@ -78,7 +78,7 @@ public class MusicManager : MonoBehaviour {
                 if (__music.clip == songs[0])
                 {
                     __music.Stop();
-                    __music.clip = songs[2];
+                    __music.clip = songs[3];
                     __music.Play();
                 }
                 break;
