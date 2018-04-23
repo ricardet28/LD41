@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour {
 
     public static MusicManager instance = null;
-    private AudioSource _audio;
+    public AudioSource __music;
+    public AudioSource _audioSourceButtons;
+    public AudioSource _winSound;
     private Scene _currentScene;
 
     public AudioClip[] songs;
 
     public static int winner;
     public static bool imageChanged;
-
-    public Sprite[] spritesWinners;
     public int _playerWinner;
 
     enum scenes {MainMenu = 0, StageSelect = 1, Level1 = 2, Level2 = 3, Level3 = 4, EndGame = 5};
@@ -27,7 +27,7 @@ public class MusicManager : MonoBehaviour {
         }
         else if (instance != null && instance != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
         DontDestroyOnLoad(this.gameObject);
@@ -38,8 +38,7 @@ public class MusicManager : MonoBehaviour {
     }
     private void Update()
     {
-        if (GetComponent<AudioSource>() != null)
-            _audio = GetComponent<AudioSource>();
+        
 
         _currentScene = SceneManager.GetActiveScene();
         Debug.Log(_currentScene.buildIndex);
@@ -47,52 +46,64 @@ public class MusicManager : MonoBehaviour {
         switch (_currentScene.buildIndex)
         {
             case (int)scenes.MainMenu:
-                _audio.clip = songs[0];
-                if (!_audio.isPlaying)
+                __music.clip = songs[0];
+                if (!__music.isPlaying)
                 {
-                    _audio.Stop();
-                    _audio.Play();
+                    __music.Stop();
+                    __music.Play();
                 }
 
                 break;
 
             case (int)scenes.Level1:
 
-                if (_audio.clip == songs[0])
+                if (__music.clip == songs[0])
                 {
-                    _audio.Stop();
-                    _audio.clip = songs[1];
-                    _audio.Play();
+                    __music.Stop();
+                    __music.clip = songs[1];
+                    __music.Play();
                 }
                 break;
 
             case (int)scenes.Level2:
-                if (_audio.clip == songs[0])
+                if (__music.clip == songs[0])
                 {
-                    _audio.Stop();
-                    _audio.clip = songs[2];
-                    _audio.Play();
+                    __music.Stop();
+                    __music.clip = songs[2];
+                    __music.Play();
                 }
                 break;
 
             case (int)scenes.Level3:
-                if (_audio.clip == songs[0])
+                if (__music.clip == songs[0])
                 {
-                    _audio.Stop();
-                    _audio.clip = songs[2];
-                    _audio.Play();
+                    __music.Stop();
+                    __music.clip = songs[2];
+                    __music.Play();
                 }
                 break;
 
             case (int)scenes.EndGame:
-                if (_audio.clip == songs[1] || _audio.clip == songs[2] || _audio.clip == songs[3])
+                if (__music.clip == songs[1] || __music.clip == songs[2] || __music.clip == songs[3])
                 {
-                    _audio.Stop();
-                    _audio.clip = songs[0];
-                    _audio.Play();
+                    _winSound.Play();
+                    __music.Stop();
+                    __music.clip = songs[0];
+                    __music.Play();
                 }
                 break;
         }
+    }
+
+    public void PlaySoundButton()
+    {
+        Debug.Log("playing sound");
+        if (_audioSourceButtons.isPlaying)
+        {
+            _audioSourceButtons.Stop();
+        }
+        _audioSourceButtons.Play();
+        
     }
 
 

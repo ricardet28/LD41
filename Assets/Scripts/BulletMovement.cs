@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
 
+    
+
     private Rigidbody rb;
     private PlayerManager pm;
     // Use this for initialization
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        
     }
 
     void Start () {
@@ -35,12 +37,18 @@ public class BulletMovement : MonoBehaviour {
             
             other.gameObject.GetComponent<PlayerManager>().setScore(other.gameObject.GetComponent<PlayerManager>().getScore() - 1);
             Debug.Log("Al Player " + other.gameObject.GetComponent<PlayerManager>().playerNumber + " le quedan " + other.gameObject.GetComponent<PlayerManager>().getScore() + " vidas!");
+
+            pm = other.gameObject.GetComponent<PlayerManager>();
+            pm.PlayBulletHitSound();
         }
         if (other.gameObject.tag == "Player2" && GameManager.instance.playing)
         {
             
             other.gameObject.GetComponent<PlayerManager>().setScore(other.gameObject.GetComponent<PlayerManager>().getScore() - 1);
             Debug.Log("Al Player " + other.gameObject.GetComponent<PlayerManager>().playerNumber + " le quedan " + other.gameObject.GetComponent<PlayerManager>().getScore() + " vidas!");
+
+            pm = other.gameObject.GetComponent<PlayerManager>();
+            pm.PlayBulletHitSound();
         }
         if (other.gameObject.tag != "Ball" && other.gameObject.tag != "Bullet")
         {

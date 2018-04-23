@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour {
 
     public Transform spawnPoint;
     public int playerNumber;
+    public AudioSource _audioHitBullet;
     //public GameObject instance;
 
     public int score = 2;
@@ -87,6 +88,16 @@ public class PlayerManager : MonoBehaviour {
 
 
 
+    }
+
+    public void PlayBulletHitSound()
+    {
+        if (_audioHitBullet.isPlaying)
+        {
+            _audioHitBullet.Stop();
+
+        }
+        _audioHitBullet.Play();
     }
 
 }

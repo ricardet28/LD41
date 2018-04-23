@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 
-    public AudioSource _audioSource;
+    
 
     public void ChangeScene(string scene)
     {
@@ -17,13 +17,5 @@ public class SceneController : MonoBehaviour {
         Application.Quit();
     }
 
-    public void PlaySound()
-    {
-        Debug.Log("playing sound");
-        if (_audioSource.isPlaying)
-        {
-            _audioSource.Stop();
-        }
-        _audioSource.Play();
-    }
+    
 }
