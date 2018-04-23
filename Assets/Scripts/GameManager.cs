@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour {
     public Text scorePlayer1;
     public Text scorePlayer2;
 
+    private bool isPaused;
+    private GameObject pauseGO;
+    
     //public int roundsNumber;
     private WaitForSeconds startWait;
     private WaitForSeconds endWait;
@@ -46,6 +49,19 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     public static GameManager instance = null;
 
+    public GameObject PauseGO
+    {
+        get
+        {
+            return pauseGO;
+        }
+
+        set
+        {
+            pauseGO = value;
+        }
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -60,9 +76,9 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
 
         _musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
-        
-        
+        pauseGO = GameObject.Find("PauseMenu");
     }
+
     void Start () {
 
         startWait = new WaitForSeconds(startDelay);
@@ -73,7 +89,8 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(GameLoop());
 
         MusicManager.imageChanged = false;
-
+        pauseGO.SetActive(false);
+        isPaused = false;
     }
 
     private IEnumerator GameLoop()
@@ -227,5 +244,38 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                pauseGO.SetActive(false);
+                PauseGame(false);
+                isPaused = false;
+            }
+            else
+            {
+                pauseGO.SetActive(true);
+                PauseGame(true);
+                isPaused = true;
+            }
+        }
+    }
+
+    public void PauseGame(bool pause)
+    {
+        if (pause)
+            Time.timeScale = 0.1f;
+        else
+            Time.timeScale = 1.0f;
+    }
+
+    public void RestartGameLoop()
+    {
+        pauseGO.SetActive(false);
+        PauseGame(false);
+        StopAllCoroutines();
+        StartCoroutine(GameLoop());
+    }
 }
