@@ -13,10 +13,12 @@ public class PlayerInput : MonoBehaviour {
     private string AimAxisName;
     private string FireAxisName;
     private string BallAxisName;
+    private string pause;
 
     public bool shieldEnabled;
     public bool shootBullet;
     public bool shootBall;
+    public bool pauseMenu;
 
     private GameObject player;
 	
@@ -36,6 +38,8 @@ public class PlayerInput : MonoBehaviour {
         AimAxisName = "ArmaY"+ _playerManager.playerNumber;
         FireAxisName = "Fire"+_playerManager.playerNumber;
         BallAxisName = "Ball" + _playerManager.playerNumber;
+        pause = "Pause";
+
     }
 
     void FixedUpdate () {
@@ -53,6 +57,7 @@ public class PlayerInput : MonoBehaviour {
         _gunAiming.Aiming(rotation);
         
         shieldEnabled = Input.GetButton(shieldAxisName);
+        //pauseMenu = Input.GetButtonDown(pauseMenu);
 
     }
 }

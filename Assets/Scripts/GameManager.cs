@@ -246,7 +246,7 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause1"))
         {
             if (isPaused)
             {
@@ -266,9 +266,20 @@ public class GameManager : MonoBehaviour {
     public void PauseGame(bool pause)
     {
         if (pause)
-            Time.timeScale = 0.1f;
+        {
+            Time.timeScale = 0f;
+            GameObject.Find("Player1Prototype").GetComponent<PlayerInput>().enabled = false;
+            GameObject.Find("Player2Prototype").GetComponent<PlayerInput>().enabled = false;
+        }
+
+
         else
+        {
             Time.timeScale = 1.0f;
+            GameObject.Find("Player1Prototype").GetComponent<PlayerInput>().enabled = true;
+            GameObject.Find("Player2Prototype").GetComponent<PlayerInput>().enabled = true;
+        }
+            
     }
 
     public void RestartGameLoop()
